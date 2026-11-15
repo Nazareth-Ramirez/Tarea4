@@ -1,0 +1,37 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package modelo;
+
+/**
+ *
+ * @author kaysc
+ */
+public abstract class Pagina {
+    
+    private String titulo;
+    private int numeroPagina;
+    private String informacion;
+
+    public Pagina(String titulo, int numeroPagina, String informacion) {
+        this.titulo = titulo;
+        this.numeroPagina = numeroPagina;
+        this.informacion = informacion;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public int getNumeroPagina() {
+        return numeroPagina;
+    }
+
+    public String getInformacion() {
+        return informacion;
+    }
+    
+    public abstract String mostrarInformacion();
+    
+}
