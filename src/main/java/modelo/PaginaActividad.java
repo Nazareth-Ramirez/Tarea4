@@ -25,7 +25,8 @@ public class PaginaActividad extends Pagina {
         JOptionPane.showMessageDialog(null, "Informacion de la actividad"
                 + "\nTitulo: " + p.getTitulo()
                 + "\nNumero de pagona: " + p.getNumeroPagina()
-                + "\nPregunta: " + p.getContenido());
+                + "\nPregunta: " + p.getContenido()
+                + mensajePositivo);
 
     }
     
