@@ -8,30 +8,43 @@ package modelo;
  *
  * @author kaysc
  */
+
 public abstract class Pagina {
     
     private String titulo;
     private int numeroPagina;
-    private String informacion;
+    private String contenido;
 
-    public Pagina(String titulo, int numeroPagina, String informacion) {
+    public Pagina(String titulo, int numeroPagina, String contenido) {
         this.titulo = titulo;
         this.numeroPagina = numeroPagina;
-        this.informacion = informacion;
+        this.contenido = contenido;
     }
 
     public String getTitulo() {
         return titulo;
     }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public int getNumeroPagina() {
         return numeroPagina;
     }
 
-    public String getInformacion() {
-        return informacion;
+    public void setNumeroPagina(int numeroPagina) {
+        this.numeroPagina = numeroPagina;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
     }
     
-    public abstract String mostrarInformacion();
+    public abstract String mostrarContenido(Pagina p);
     
 }
