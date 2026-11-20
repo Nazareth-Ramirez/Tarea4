@@ -8,19 +8,17 @@ package modelo;
  *
  * @author kaysc
  */
-public class PaginaInformativa extends Pagina {
+public class PaginaInformativa extends Pagina{
 
     public PaginaInformativa(String titulo, int numeroPagina, String contenido) {
         super(titulo, numeroPagina, contenido);
     }
 
     @Override
-    public String mostrarContenido(Pagina p) {
-        return "Informacion de la pagina"
-                + "\nTitulo: " + p.getTitulo()
-                + "\nNumero de pagina: " + p.getNumeroPagina()
-                + "\nContenido: " + p.getContenido();
-
+    public String mostrarContenido() {
+        return "Pagina " + getNumeroPagina() + ": " + getTitulo()
+                + "\n\n" + getContenido();
     }
-
+    
+    
 }
