@@ -4,20 +4,28 @@
  */
 package vista;
 
+import java.awt.event.ActionListener;
+import javax.swing.JTextArea;
+
 /**
  *
- * @author Usuario
+ * @author kaysc
  */
 public class GUI_Actividad extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUI_Actividad.class.getName());
-
+   
     /**
      * Creates new form GUI_Actividad
      */
+    
+//    private PanelMultiple panelMultiple;
+    
+    
     public GUI_Actividad() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,69 +37,122 @@ public class GUI_Actividad extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnVerdadero = new javax.swing.JButton();
-        btnFalso = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        btnSiguiente = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtPregunta = new javax.swing.JTextArea();
+        btnVolverMenu = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnVerdadero.setText("Verdadero");
-        jPanel1.add(btnVerdadero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 20));
+        btnSiguiente.setText("Siguiente");
+        jPanel1.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 510, -1, -1));
 
-        btnFalso.setText("Falso");
-        jPanel1.add(btnFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Pregunta");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
+        txtPregunta.setBackground(new java.awt.Color(255, 255, 255));
+        txtPregunta.setColumns(20);
+        txtPregunta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtPregunta.setForeground(new java.awt.Color(0, 0, 0));
+        txtPregunta.setRows(5);
+        jScrollPane1.setViewportView(txtPregunta);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 820, 170));
+
+        btnVolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnVolverMenu.png"))); // NOI18N
+        btnVolverMenu.setBorderPainted(false);
+        btnVolverMenu.setContentAreaFilled(false);
+        btnVolverMenu.addActionListener(this::btnVolverMenuActionPerformed);
+        jPanel1.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 150, 30));
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FondoMenuPreguntas.png"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    public void addButtonListener(ActionListener listener) {
+        btnVolverMenu.setActionCommand("VolverMenu");
+        btnSiguiente.setActionCommand("SIGUIENTE");
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUI_Actividad().setVisible(true));
+        btnVolverMenu.addActionListener(listener);
+        btnSiguiente.addActionListener(listener);
+        
+        
+        // Eventos de los paneles.
+//        panelMultiple.addButtonListener(listener);
+    }
+    
+    // El controlador puede mostrar informacion y habilitar los botones.
+    public void mostrarPregunta(String texto, String[] s,int n, int h) {
+        txtPregunta.setText(texto);
+        
     }
 
+    public void habilitarBotones(boolean anterior, boolean siguiente, boolean responder) {
+//        btnOp1.setEnabled(anterior);
+//        btnOp2.setEnabled(siguiente);
+//        btnSiguientePagina.setEnabled(siguiente);
+        btnVolverMenu.setEnabled(siguiente);
+//        btnResponder.setEnabled(responder);
+    }
+    
+//     public void mostrarOpciones(String[] opciones) {
+//
+//        panelMultiple.mostrarOpciones(opciones);
+//    }
+//
+//
+//// Obtiene la respuesta de opción múltiple.
+//    public String obtenerRespuestaMultiple(int opcion) {
+//
+//        return panelMultiple.obtenerRespuesta(opcion);
+//    }
+//
+//
+//    public void habilitarRespuestas(boolean habilitar) {
+//
+//        panelMultiple.habilitarOpciones(habilitar);
+//
+//    }
+
+    // Accesos mantenidos para facilitar la lectura del ejemplo.
+//    public JButton getBtnAnterior() { return btnAnteriorPagina; }
+//    public JButton getBtnSiguiente() { return btnSiguientePagina; }
+    
+//    public JButton getBtnResponder() { return btnResponder; }
+    public JTextArea getTxtContenido() { return txtPregunta; }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFalso;
-    private javax.swing.JButton btnVerdadero;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnSiguiente;
+    private javax.swing.JButton btnVolverMenu;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JTextArea txtPregunta;
     // End of variables declaration//GEN-END:variables
 }

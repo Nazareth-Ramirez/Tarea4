@@ -4,40 +4,20 @@
  */
 package modelo;
 
-import javax.swing.JOptionPane;
-
 /**
  *
- * @author Usuario
+ * @author kaysc
  */
-public class PaginaInformativa extends Pagina {
-    
-    private String mensajePositivo;
+public class PaginaInformativa extends Pagina{
 
-    public PaginaInformativa(String mensajePositivo, String titulo, int numeroPagina, String contenido) {
+    public PaginaInformativa(String titulo, int numeroPagina, String contenido) {
         super(titulo, numeroPagina, contenido);
-        this.mensajePositivo = mensajePositivo;
     }
-
-    
-    public String getMensajePositivo() {
-        return mensajePositivo;
-    }
-
-    public void setMensajePositivo(String mensajePositivo) {
-        this.mensajePositivo = mensajePositivo;
-    }
-
-   
 
     @Override
-    public void mostrarContenido(Pagina p) {
-        JOptionPane.showMessageDialog(null, "Informacion de la pagina"
-                + "\nTitulo: " + p.getTitulo()
-                + "\nNumero de pagina: " + p.getNumeroPagina()
-                + "\nContenido: " + p.getContenido()
-                + "\n"+ mensajePositivo);
-
+    public String mostrarContenido() {
+        return "Pagina " + getNumeroPagina() + ": " + getTitulo()
+                + "\n\n" + getContenido();
     }
     
     

@@ -6,10 +6,10 @@ package modelo;
 
 /**
  *
- * @author Usuario
+ * @author kaysc
  */
 public abstract class Pagina {
-    
+
     private String titulo;
     private int numeroPagina;
     private String contenido;
@@ -24,26 +24,14 @@ public abstract class Pagina {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
     public int getNumeroPagina() {
         return numeroPagina;
-    }
-
-    public void setNumeroPagina(int numeroPagina) {
-        this.numeroPagina = numeroPagina;
     }
 
     public String getContenido() {
         return contenido;
     }
 
-    public void setContenido(String contenido) {
-        this.contenido = contenido;
-    }
-    
-    public abstract void mostrarContenido(Pagina p);
-    
+    public abstract String mostrarContenido();
+
 }

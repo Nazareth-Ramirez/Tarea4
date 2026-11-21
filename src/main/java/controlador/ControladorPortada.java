@@ -6,8 +6,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import modelo.ArraAdministrar;
-import vista.GUI_Educativa1;
+import modelo.Libro;
+import vista.GUI_Menu;
 import vista.GUI_Portada;
 
 /**
@@ -16,20 +16,20 @@ import vista.GUI_Portada;
  */
 public class ControladorPortada implements ActionListener{
     
-     private GUI_Portada vista = new GUI_Portada();
+    private GUI_Portada vista = new GUI_Portada();
 
     public ControladorPortada() {
         vista.addMenuListener(this);
     }
-     
-     
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         String op = e.getActionCommand();
         switch (op){
             case "INICIO":
-                abrirLibro();
+                abrirMenu();
                 break;
             case "SALIR":
                 vista.dispose();
@@ -40,20 +40,21 @@ public class ControladorPortada implements ActionListener{
         
     }
     
-    public void iniciar(){
+     public void iniciar(){
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }
     
-    public void abrirLibro() {
+    public void abrirMenu() {
 //        Coordenada modelo = new Coordenada();
-        ArraAdministrar modelo = new ArraAdministrar();
-        GUI_Educativa1 vista1 = new GUI_Educativa1();
+//        Libro modelo = new Libro();
+        GUI_Menu vistaMenu = new GUI_Menu();
 //        ControladorLibro control = new ControladorLibro(modelo, vistaLibro, vista);
-        ControladorActivi1 controlUno = new ControladorActivi1(modelo, vista1, vista);
+        ControladorLibro controlUno = new ControladorLibro(vista, vistaMenu);
 
         vista.setVisible(false);
-        vista1.setLocationRelativeTo(null);
-        vista1.setVisible(true);
+        vistaMenu.setLocationRelativeTo(null);
+        vistaMenu.setVisible(true);
     }
+    
 }
